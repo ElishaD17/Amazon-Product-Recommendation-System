@@ -1,5 +1,7 @@
 # Amazon Product Recommendation System
 
+  ![mv](rs.png) 
+  
 This project develops a machine learning-based recommendation system to enhance user engagement and improve product targeting on Amazon. It features a dual-platform analytics dashboard built using Power BI and Tableau to visualize key performance indicators and insights derived from user data.
 
 ## Overview
