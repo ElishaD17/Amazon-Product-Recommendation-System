@@ -2,60 +2,75 @@
 
   ![mv](rs.png) 
   
-This project develops a machine learning-based recommendation system to enhance user engagement and improve product targeting on Amazon. It features a dual-platform analytics dashboard built using Power BI and Tableau to visualize key performance indicators and insights derived from user data.
+# README for Amazon Product Reviews Recommender System
 
 ## Overview
-
-The Amazon Product Recommendation System utilizes advanced machine learning techniques to predict user preferences and recommend products. This system leverages user segmentation and sophisticated ad targeting algorithms to boost content virality and refine product targeting through real-time analytics.
-
-## Technologies Used
-
-- **Python**: For data processing and machine learning model development.
-- **TensorFlow/PyTorch**: Utilized for building and training advanced machine learning models.
-- **Apache Spark**: Employed for handling large-scale data processing.
-- **Power BI and Tableau**: Used for developing interactive, real-time dashboards to visualize results and insights.
-- **Google Colab**: As the development environment to leverage free computational resources, including GPUs.
+This project involves building a recommender system using Amazon product reviews. The dataset is processed and analyzed using various data science techniques, including exploratory data analysis (EDA), collaborative filtering, and matrix factorization. The primary goal is to recommend products to users based on their past ratings.
 
 ## Project Structure
+1. **Data Preparation**
+2. **Exploratory Data Analysis**
+3. **Collaborative Filtering**
+4. **Model-Based Collaborative Filtering**
+5. **Recommendation System**
 
-- `/data`: This folder contains the dataset and any preprocessing scripts.
-- `/models`: Includes scripts for model building and training.
-- `/notebooks`: Jupyter notebooks with exploratory data analysis and model testing.
-- `/dashboards`: Files related to dashboard development in Power BI and Tableau.
-- `/docs`: Documentation files explaining the methodologies, results, and usage of the system.
+## Technologies
+- **Python**: Primary programming language
+- **Pandas**: Data manipulation and analysis
+- **NumPy**: Numerical operations
+- **Seaborn & Matplotlib**: Data visualization
+- **Scipy & Statsmodels**: Statistical analysis
+- **Scikit-learn**: Machine learning
+- **Surprise**: Collaborative filtering algorithms
+- **Plotly & Cufflinks**: Interactive visualizations
 
-## Setup and Installation
+## Detailed Steps
 
-Ensure you have Python installed, along with the necessary libraries listed in `requirements.txt`. Setup instructions for each component are as follows:
+### 1. Data Preparation
+- **Import Libraries**: Load necessary libraries for data manipulation, visualization, and modeling.
+- **Load Data**: Download and extract the dataset using Kaggle API, and load it into a Pandas DataFrame.
+- **Sample Data**: Take a sample of the dataset to optimize performance during analysis.
 
-1. **Python Environment Setup**:
-   - Install necessary Python libraries with `pip install -r requirements.txt`.
+### 2. Exploratory Data Analysis
+- **Data Overview**: Observe data structure, handle missing values, and drop unnecessary columns.
+- **Descriptive Analysis**: Understand the relationship between features, and visualize the distribution of ratings.
+- **User and Product Statistics**: Analyze the number of ratings per user and per product.
 
-2. **Apache Spark Setup**:
-   - Follow the official guide to set up Spark on your machine or use it within Google Colab.
+### 3. Collaborative Filtering
+- **Surprise Library**: Utilize the Surprise library to implement collaborative filtering techniques.
+- **Train-Test Split**: Split the data into training and testing sets.
+- **KNN-Based Collaborative Filtering**: Apply KNN-based collaborative filtering (user-based and item-based).
 
-3. **Dashboard Tools**:
-   - Install Power BI and Tableau desktop applications to access and use the dashboards provided.
+### 4. Model-Based Collaborative Filtering
+- **Data Transformation**: Pivot the data to create a user-item interaction matrix.
+- **Matrix Decomposition**: Use Singular Value Decomposition (SVD) to decompose the interaction matrix.
+- **Correlation Matrix**: Calculate the correlation matrix to identify similar products.
 
-## Usage
+### 5. Recommendation System
+- **Similarity Calculation**: Use the correlation matrix to recommend products.
+- **Top-N Recommendations**: Generate the top-N product recommendations for users.
 
-To run the project, follow these steps:
-1. Data preprocessing:
-   - Execute the script `python preprocess_data.py` to prepare your data.
-2. Model training:
-   - Run `python train_model.py` to train the machine learning models.
-3. Dashboard:
-   - Open the provided files in Power BI and Tableau to explore the dashboards.
+## How to Use
+1. **Setup Environment**: Ensure all required libraries are installed.
+   ```bash
+   pip install kaggle pandas numpy seaborn matplotlib scikit-learn plotly cufflinks surprise
+   ```
+2. **Kaggle API Configuration**: Setup Kaggle API to download the dataset.
+   ```python
+   !mkdir -p ~/.kaggle
+   !cp kaggle.json ~/.kaggle/
+   !chmod 600 ~/.kaggle/kaggle.json
+   !kaggle datasets download -d irvifa/amazon-product-reviews
+   ```
+3. **Run the Script**: Execute the provided Python script to perform the analysis and generate recommendations.
 
-## Contributing
+## Conclusion
+This project demonstrates the use of various data science techniques to build a recommender system. By analyzing user-product interactions, the system can recommend products that are likely to be of interest to users, thereby enhancing the user experience and potentially increasing sales.
 
-Contributions to the Amazon Product Recommendation System are welcome! Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
+## References
+- [Surprise Library Documentation](https://surprise.readthedocs.io/)
+- [Scikit-learn Documentation](https://scikit-learn.org/)
+- [Kaggle Datasets](https://www.kaggle.com/)
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to all the contributors who have invested their time in improving this project.
-- Special thanks to [Google Colab](https://colab.research.google.com/) for providing the computational resources.
+This project is licensed under the Apache 2.0 License. See the LICENSE file for more details.
